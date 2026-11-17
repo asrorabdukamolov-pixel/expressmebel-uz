@@ -13,7 +13,8 @@ Saytdagi har bir o'zgarish tugagach, so'ramasdan:
 2. `git add -A`
 3. `git commit -m "<nima o'zgargani, qisqa>"`
 4. `git push origin main`
-5. Push'dan keyin foydalanuvchiga commit nomini (hash va xabar) aytiladi.
+5. `npx.cmd --yes vercel@latest deploy --prod --yes` — sayt hozircha Vercel'da (https://expressmebel.vercel.app), u GitHub'ga ulanmagan, shuning uchun har push'dan keyin qo'lda joylanadi. Railway ulangach, bu qadam kerak bo'lmaydi.
+6. Push'dan keyin foydalanuvchiga commit nomini (hash va xabar) aytiladi.
 
 Railway `main` ga har bir push'dan keyin saytni o'zi qayta joylaydi, shuning uchun build xatosi bilan push qilish saytni buzadi.
 
