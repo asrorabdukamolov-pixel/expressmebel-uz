@@ -4,7 +4,7 @@ import { notFound } from "next/navigation";
 import { hasLocale, locales } from "@/i18n/config";
 import { getDictionary } from "@/i18n";
 import { contacts } from "@/lib/site";
-import { works } from "@/lib/works";
+import { getWorks } from "@/lib/telegramWorks";
 import { Header } from "@/components/Header";
 import { WorksCatalog } from "@/components/WorksCatalog";
 import { Title } from "@/components/ui";
@@ -13,6 +13,7 @@ export async function generateMetadata({ params }: PageProps<"/[lang]/works">): 
   const { lang } = await params;
   if (!hasLocale(lang)) return {};
   const t = await getDictionary(lang);
+  const works = await getWorks();
   return {
     title: t.works.metaTitle,
     description: t.works.metaDescription,
@@ -28,6 +29,7 @@ export default async function WorksPage({ params }: PageProps<"/[lang]/works">) 
   const { lang } = await params;
   if (!hasLocale(lang)) notFound();
   const t = await getDictionary(lang);
+  const works = await getWorks();
   const photoCount = works.reduce((s, w) => s + w.photos.length, 0);
 
   return (

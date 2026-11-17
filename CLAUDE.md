@@ -22,4 +22,6 @@ Railway `main` ga har bir push'dan keyin saytni o'zi qayta joylaydi, shuning uch
 - Ranglar: 60% zumrad fon, 30% iliq fil suyagi (#F6F2EA), 10% aksent. Logotip firuzasi #008E9B faqat mayda detallarda. To'q "sochniy" oltin (`--gold-grad`) faqat tugma, chip va progress'da; sarlavhadagi so'zlar va raqamlarda yumshoq shampan oltini (`--champagne-grad`). Yangi rang qo'shilmaydi. Shriftlar: Playfair Display + Onest.
 - Kalitlar (Telegram, CRM, analitika) faqat `.env.local` / Railway Variables'da — repoga tushmaydi (`.env.example` ga qarang).
 - Hujjatlar bloki: `public/docs/` ga PDF yoki JPG/PNG/WEBP qo'yilsa, saytda avtomatik chiqadi (nom fayl nomidan, boshidagi raqam tartibni belgilaydi: `01-Sertifikat.pdf`). Papka bo'sh bo'lsa, bo'lim ko'rinmaydi.
+- Ishlarimiz katalogi (`/[lang]/works`): `src/lib/works.ts` dagi 43 ta tanlangan loyiha + Telegram kanal (t.me/Express_Mebel_Katalog) dagi yangi postlar soatiga bir marta avtomatik qo'shiladi (`src/lib/telegramWorks.ts`). Turkum xeshtegdan (#oshxona #shkaf #mehmonxona #yotoqxona), bo'lmasa matndan aniqlanadi.
+- Burger Embassy keys rasmi: `public/img/cases/embassy.jpg` — hozircha litsenziyali stok surat, haqiqiy filial surati kelganda shu fayl almashtiriladi.
 - Dev serverda CSS o'zgarmay qolsa: serverni to'xtatib, `.next` papkasini o'chirib, qayta ishga tushiring.

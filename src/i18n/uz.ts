@@ -125,9 +125,9 @@ const uz = {
     lead: "Siz ham o‘z sohasining yetakchilari safiga qo‘shilasiz. Ular bizga bir marta emas, yillar davomida ishonib kelmoqda.",
     safia: {
       chip: "HoReCa · 1,5 yillik hamkorlik",
-      text: "Safia tarmog‘ining 70 ta savdo zalini vitrina, peshtaxta va mebel bilan jihozladik, 40 dan ortiq filialining mebelini esa restavratsiya qilib, yangiladik.",
+      text: "Safia tarmog‘ining 70 ta filialini vitrina, peshtaxta va mebel bilan jihozladik, 40 dan ortiq filialida esa mebelni restavratsiya qilib, yangiladik.",
       stats: [
-        { value: "70", label: "savdo zali jihozlandi" },
+        { value: "70", label: "filial jihozlandi" },
         { value: "40+", label: "filial mebeli yangilandi" },
       ],
     },

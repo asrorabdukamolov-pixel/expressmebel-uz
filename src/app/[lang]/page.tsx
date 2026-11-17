@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { works } from "@/lib/works";
+import { getWorks } from "@/lib/telegramWorks";
 import { hasLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n";
 import { contacts, type CategoryId } from "@/lib/site";
@@ -53,6 +53,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
   const t = await getDictionary(lang);
   const [b1, s1, b2, s2] = t.hero.trust;
   const docs = getDocuments();
+  const works = await getWorks();
 
   return (
     <>
@@ -209,8 +210,9 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
                   <CaseStats items={t.cases.safia.stats} />
                 </div>
               </article>
-              <article className="case soon">
-                <Bars />
+              {/* Replace public/img/cases/embassy.jpg with a real photo of an Embassy branch to update this card */}
+              <article className="case art">
+                <Image src="/img/cases/embassy.jpg" alt="Burger Embassy" fill sizes="(max-width: 860px) 100vw, 45vw" className="object-cover" />
                 <div className="case-body">
                   <Image src="/brand/clients/burger-embassy-logo.jpg" alt="Burger Embassy — Embassy of Burgers" width={150} height={150} className="client-round" />
                   <span className="chip">{t.cases.embassy.chip}</span>

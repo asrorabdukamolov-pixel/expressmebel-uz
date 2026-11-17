@@ -125,9 +125,9 @@ const en: Dictionary = {
     lead: "You join the leaders of your industry. They have trusted us not once, but for years.",
     safia: {
       chip: "HoReCa · 1.5-year partnership",
-      text: "We fitted out 70 Safia sales floors with display cases, counters and furniture, and restored and refreshed the furniture in more than 40 branches.",
+      text: "We fitted out 70 Safia branches with display cases, counters and furniture, and restored and refreshed the furniture in more than 40 branches.",
       stats: [
-        { value: "70", label: "sales floors fitted out" },
+        { value: "70", label: "branches fitted out" },
         { value: "40+", label: "branches refurbished" },
       ],
     },
