@@ -33,8 +33,7 @@ const en: Dictionary = {
   },
   docs: {
     eyebrow: "Documents",
-    title: ["Official documents:", "trust you can check"],
-    lead: "Certificates, registration documents and sample contracts. Open or download any of them.",
+    title: "Certificates, registration documents and sample contracts",
     open: "Open",
   },
   band: {

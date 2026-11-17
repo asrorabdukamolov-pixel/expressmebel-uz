@@ -33,8 +33,7 @@ const uz = {
   },
   docs: {
     eyebrow: "Hujjatlar",
-    title: ["Rasmiy hujjatlar:", "ishonchimiz qog‘ozda ham tasdiqlangan"],
-    lead: "Sertifikatlar, guvohnomalar va shartnoma namunalari. Istalgan hujjatni ochib ko‘rishingiz yoki yuklab olishingiz mumkin.",
+    title: "Sertifikatlar, guvohnomalar va shartnoma namunalari",
     open: "Ochish",
   },
   band: {

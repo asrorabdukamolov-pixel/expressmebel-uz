@@ -272,44 +272,6 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
           </div>
         </section>
 
-        {/* Documents: files from public/docs appear here automatically */}
-        {docs.length > 0 && (
-          <section className="section light" id="docs">
-            <div className="wrap">
-              <div className="sec-head">
-                <div className="eyebrow">{t.docs.eyebrow}</div>
-                <Title parts={t.docs.title} />
-                <p className="lead">{t.docs.lead}</p>
-              </div>
-              <div className="docs">
-                {docs.map((d) => (
-                  <a key={d.href} className="doc" href={d.href} target="_blank" rel="noopener">
-                    <div className="doc-ph">
-                      {d.kind === "image" ? (
-                        <Image src={d.href} alt={d.title} fill sizes="(max-width: 560px) 50vw, 25vw" className="object-cover" />
-                      ) : (
-                        <span className="doc-sheet" aria-hidden="true">
-                          <i />
-                          <i />
-                          <i />
-                          <b>PDF</b>
-                        </span>
-                      )}
-                    </div>
-                    <div className="doc-meta">
-                      <h3>{d.title}</h3>
-                      <span>
-                        {d.ext} · {d.sizeKb >= 1024 ? `${(d.sizeKb / 1024).toFixed(1)} MB` : `${d.sizeKb} KB`}
-                        <em>{t.docs.open} ↗</em>
-                      </span>
-                    </div>
-                  </a>
-                ))}
-              </div>
-            </div>
-          </section>
-        )}
-
         {/* Mid-page call to action */}
         <section className="band dark">
           <Image src="/img/stock/s-pendants.jpg" alt="" fill sizes="100vw" className="band-bg z-0 object-cover opacity-45" />
@@ -381,6 +343,27 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
             </ol>
           </div>
         </section>
+
+        {/* Documents: a compact strip; files from public/docs appear here automatically */}
+        {docs.length > 0 && (
+          <section className="docs-sec light" id="docs">
+            <div className="wrap docs-grid">
+              <div className="grid gap-2">
+                <div className="eyebrow">{t.docs.eyebrow}</div>
+                <p className="docs-title h-display">{t.docs.title}</p>
+              </div>
+              <div className="docs">
+                {docs.map((d) => (
+                  <a key={d.href} className="doc" href={d.href} target="_blank" rel="noopener">
+                    <span className="doc-ico" aria-hidden="true">{d.ext}</span>
+                    <span className="doc-name">{d.title}</span>
+                    <span className="doc-open">{t.docs.open} ↗</span>
+                  </a>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
 
         {/* Lead form */}
         <section className="section dark" id="lead">
