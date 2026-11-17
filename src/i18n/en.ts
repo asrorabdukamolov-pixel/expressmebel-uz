@@ -31,6 +31,12 @@ const en: Dictionary = {
       { title: "One accountable team", text: "One team answers for everything from design to installation. You just sign off the result." },
     ],
   },
+  docs: {
+    eyebrow: "Documents",
+    title: ["Official documents:", "trust you can check"],
+    lead: "Certificates, registration documents and sample contracts. Open or download any of them.",
+    open: "Open",
+  },
   band: {
     title: ["An interior your guests will admire,", "now yours"],
     text: "One request is enough: we measure, price it and show you a 3D project. No obligation, the decision is always yours.",

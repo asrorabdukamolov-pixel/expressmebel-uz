@@ -31,6 +31,12 @@ const uz = {
       { title: "Bitta mas’ul jamoa", text: "Dizayndan o‘rnatishgacha bitta jamoa javob beradi. Sizga faqat tayyor natijani qabul qilish qoladi." },
     ],
   },
+  docs: {
+    eyebrow: "Hujjatlar",
+    title: ["Rasmiy hujjatlar:", "ishonchimiz qog‘ozda ham tasdiqlangan"],
+    lead: "Sertifikatlar, guvohnomalar va shartnoma namunalari. Istalgan hujjatni ochib ko‘rishingiz yoki yuklab olishingiz mumkin.",
+    open: "Ochish",
+  },
   band: {
     title: ["Mehmonlaringizni hayratga soladigan interyer", "endi sizniki"],
     text: "Bitta ariza kifoya: biz o‘lchaymiz, hisoblaymiz va 3D loyihani ko‘rsatamiz. Ariza sizni hech narsaga majburlamaydi, qaror har doim sizda.",

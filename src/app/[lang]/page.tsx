@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { hasLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n";
 import { contacts, type CategoryId } from "@/lib/site";
+import { getDocuments } from "@/lib/documents";
 import { Header } from "@/components/Header";
 import { Segments } from "@/components/Segments";
 import { LeadForm } from "@/components/LeadForm";
@@ -36,6 +37,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
   if (!hasLocale(lang)) notFound();
   const t = await getDictionary(lang);
   const [b1, s1, b2, s2] = t.hero.trust;
+  const docs = getDocuments();
 
   return (
     <>
@@ -269,6 +271,44 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
             </div>
           </div>
         </section>
+
+        {/* Documents: files from public/docs appear here automatically */}
+        {docs.length > 0 && (
+          <section className="section light" id="docs">
+            <div className="wrap">
+              <div className="sec-head">
+                <div className="eyebrow">{t.docs.eyebrow}</div>
+                <Title parts={t.docs.title} />
+                <p className="lead">{t.docs.lead}</p>
+              </div>
+              <div className="docs">
+                {docs.map((d) => (
+                  <a key={d.href} className="doc" href={d.href} target="_blank" rel="noopener">
+                    <div className="doc-ph">
+                      {d.kind === "image" ? (
+                        <Image src={d.href} alt={d.title} fill sizes="(max-width: 560px) 50vw, 25vw" className="object-cover" />
+                      ) : (
+                        <span className="doc-sheet" aria-hidden="true">
+                          <i />
+                          <i />
+                          <i />
+                          <b>PDF</b>
+                        </span>
+                      )}
+                    </div>
+                    <div className="doc-meta">
+                      <h3>{d.title}</h3>
+                      <span>
+                        {d.ext} · {d.sizeKb >= 1024 ? `${(d.sizeKb / 1024).toFixed(1)} MB` : `${d.sizeKb} KB`}
+                        <em>{t.docs.open} ↗</em>
+                      </span>
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
 
         {/* Mid-page call to action */}
         <section className="band dark">
