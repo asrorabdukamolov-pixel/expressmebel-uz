@@ -126,6 +126,8 @@ const en: Dictionary = {
   process: {
     eyebrow: "How we work",
     title: ["Step by step:", "from dream to reality"],
+    lead: "From measuring to installation in as little as 25 working days. Our founder briefly explains the timeline and how measuring works.",
+    video: "Video: the 25 days",
     steps: [
       { title: "Consultation", text: "We define the brief, budget and timeline." },
       { title: "Measuring", text: "We visit the site and measure it ourselves." },
@@ -157,6 +159,29 @@ const en: Dictionary = {
     error: "The request didn’t go through. Check your connection and try again, or give us a call.",
     required: "Enter your name and phone number.",
     consent: "By sending, you agree to the processing of your personal data.",
+  },
+  film: {
+    eyebrow: "Video",
+    title: ["Express Mebel", "in one minute"],
+    lead: "Our office, factory and showroom. See with your own eyes where and how your order comes to life.",
+    play: "Watch the video",
+    chapters: ["Office and design team", "Factory and modern machinery", "Showroom: finished interiors"],
+    cta: "Book a showroom visit",
+  },
+  founder: {
+    eyebrow: "A word from the founder",
+    title: ["A family company", "since 2012"],
+    lead: "Express Mebel is a family company whose values show in every piece it makes. Our founder, Asror Abdukamolov, explains in his own words how the company works.",
+    name: "Asror Abdukamolov",
+    role: "Founder and head of Express Mebel",
+    play: "Hear from the founder",
+    valuesTitle: "Our values, and the proof",
+    values: [
+      { title: "Quality", proof: "2-year warranty and quality control on every order" },
+      { title: "Responsibility", proof: "One team answers for everything from design to installation" },
+      { title: "Growth", proof: "Homag and CNC machinery, new collections every year" },
+      { title: "Client loyalty", proof: "Safia for 1.5 years, Burger Embassy for over a year" },
+    ],
   },
   quiz: {
     eyebrow: "Project estimate",

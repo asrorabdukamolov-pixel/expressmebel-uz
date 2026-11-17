@@ -9,6 +9,7 @@ import { LeadForm } from "@/components/LeadForm";
 import { PrefillLink } from "@/components/PrefillLink";
 import { DreamSlider } from "@/components/DreamSlider";
 import { Quiz } from "@/components/Quiz";
+import { VideoReel } from "@/components/VideoReel";
 import { Bars, Title } from "@/components/ui";
 
 const catalogCards: { id: CategoryId; img: string }[] = [
@@ -196,6 +197,60 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
           </div>
         </section>
 
+        {/* Brand film */}
+        <section className="section light film" id="film">
+          <div className="wrap film-grid">
+            <VideoReel src="/video/overview.mp4" coverAt={42} label={t.film.play} />
+            <div className="grid min-w-0 content-center gap-7">
+              <div className="sec-head !m-0">
+                <div className="eyebrow">{t.film.eyebrow}</div>
+                <Title parts={t.film.title} />
+                <p className="lead">{t.film.lead}</p>
+              </div>
+              <ol className="film-chapters">
+                {t.film.chapters.map((c) => (
+                  <li key={c}>{c}</li>
+                ))}
+              </ol>
+              <div>
+                <a className="btn btn-gold" href="#lead">
+                  <span>{t.film.cta}</span>
+                  <span className="arr">→</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Founder: a face behind the company, values with proof */}
+        <section className="section dark founder" id="founder">
+          <div className="wrap film-grid">
+            <div className="grid justify-items-center gap-5">
+              <VideoReel src="/video/founder.mp4" coverAt={28} label={t.founder.play} />
+              <div className="founder-sign">
+                <b className="h-display">{t.founder.name}</b>
+                <span>{t.founder.role}</span>
+              </div>
+            </div>
+            <div className="grid min-w-0 content-center gap-8">
+              <div className="sec-head !m-0">
+                <div className="eyebrow">{t.founder.eyebrow}</div>
+                <Title parts={t.founder.title} />
+                <p className="lead">{t.founder.lead}</p>
+              </div>
+              <div className="values">
+                <div className="values-title">{t.founder.valuesTitle}</div>
+                {t.founder.values.map((v) => (
+                  <div className="value" key={v.title}>
+                    <b className="h-display">{v.title}</b>
+                    <span>{v.proof}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Guarantees: answer the fears before they are asked */}
         <section className="section seg dark">
           <div className="wrap">
@@ -268,9 +323,13 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
         {/* Process */}
         <section className="section process light">
           <div className="wrap">
-            <div className="sec-head">
-              <div className="eyebrow">{t.process.eyebrow}</div>
-              <Title parts={t.process.title} />
+            <div className="process-head">
+              <div className="sec-head !m-0">
+                <div className="eyebrow">{t.process.eyebrow}</div>
+                <Title parts={t.process.title} />
+                <p className="lead">{t.process.lead}</p>
+              </div>
+              <VideoReel src="/video/term-25-days.mp4" coverAt={2} label={t.process.video} />
             </div>
             <ol className="steps">
               {t.process.steps.map((s) => (

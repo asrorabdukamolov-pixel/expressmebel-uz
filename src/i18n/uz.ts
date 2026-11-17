@@ -126,6 +126,8 @@ const uz = {
   process: {
     eyebrow: "Ish tartibi",
     title: ["Bosqichma-bosqich:", "orzudan haqiqatgacha"],
+    lead: "O‘lchovdan o‘rnatishgacha — 25 ish kunidan. Asoschimiz muddat va o‘lchov jarayoni haqida qisqacha so‘zlab beradi.",
+    video: "25 kun haqida video",
     steps: [
       { title: "Maslahat", text: "Vazifa, byudjet va muddatni aniqlaymiz." },
       { title: "O‘lchov", text: "Obyektga borib, o‘lchovni o‘zimiz olamiz." },
@@ -157,6 +159,29 @@ const uz = {
     error: "Ariza yuborilmadi. Internet aloqasini tekshirib, qaytadan urinib ko‘ring yoki bizga qo‘ng‘iroq qiling.",
     required: "Iltimos, ismingiz va telefon raqamingizni kiriting.",
     consent: "Tugmani bosish orqali shaxsiy ma’lumotlaringizni qayta ishlashga rozilik bildirasiz.",
+  },
+  film: {
+    eyebrow: "Video",
+    title: ["Express Mebel", "bir daqiqada"],
+    lead: "Ofisimiz, fabrikamiz va ko‘rgazma zalimiz. Buyurtmangiz qayerda va qanday tug‘ilishini o‘z ko‘zingiz bilan ko‘ring.",
+    play: "Videoni ko‘rish",
+    chapters: ["Ofis va dizayn jamoasi", "Fabrika va zamonaviy dastgohlar", "Ko‘rgazma zali: tayyor interyerlar"],
+    cta: "Ko‘rgazma zaliga tashrif buyurish",
+  },
+  founder: {
+    eyebrow: "Asoschi so‘zi",
+    title: ["2012-yildan beri", "oilaviy kompaniya"],
+    lead: "«Express Mebel» — qadriyatlari har bir mahsulotida aks etgan oilaviy kompaniya. Asoschimiz Asror Abdukamolov kompaniya qanday ishlashi haqida o‘zi so‘zlab beradi.",
+    name: "Asror Abdukamolov",
+    role: "Express Mebel asoschisi va rahbari",
+    play: "Asoschini tinglash",
+    valuesTitle: "Qadriyatlarimiz va ularning isboti",
+    values: [
+      { title: "Sifat", proof: "2 yil kafolat va har bir buyurtmada sifat nazorati" },
+      { title: "Mas’uliyat", proof: "Dizayndan o‘rnatishgacha bitta jamoa javob beradi" },
+      { title: "Rivojlanish", proof: "Homag va CNC dastgohlari, har yili yangi kolleksiyalar" },
+      { title: "Mijozlar sodiqligi", proof: "Safia bilan 1,5 yil, Burger Embassy bilan 1 yildan beri" },
+    ],
   },
   quiz: {
     eyebrow: "Loyiha hisob-kitobi",
