@@ -226,7 +226,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
         <section className="section dark founder" id="founder">
           <div className="wrap film-grid">
             <div className="grid justify-items-center gap-5">
-              <VideoReel src="/video/founder.mp4" coverAt={28} label={t.founder.play} />
+              <VideoReel src="/video/founder.mp4" coverAt={2} label={t.founder.play} />
               <div className="founder-sign">
                 <b className="h-display">{t.founder.name}</b>
                 <span>{t.founder.role}</span>
