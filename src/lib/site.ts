@@ -5,6 +5,7 @@ export const contacts = {
   phoneHref: "tel:+998785555453",
   instagram: "https://www.instagram.com/express_mebel__uz/",
   instagramB2B: "https://www.instagram.com/express_mebel_b2b/",
+  telegramCatalog: "https://t.me/Express_Mebel_Katalog",
 };
 
 /** Segment and category ids shared by the page, the form and the lead API. */

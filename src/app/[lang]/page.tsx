@@ -1,5 +1,7 @@
 import Image from "next/image";
+import Link from "next/link";
 import { notFound } from "next/navigation";
+import { works } from "@/lib/works";
 import { hasLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n";
 import { contacts, type CategoryId } from "@/lib/site";
@@ -31,6 +33,19 @@ const gallery = [
   "/img/editorial/e-nightstand.jpg",
   "/img/editorial/e-table.jpg",
 ];
+
+function CaseStats({ items }: { items: { value: string; label: string }[] }) {
+  return (
+    <div className="case-stats">
+      {items.map((s) => (
+        <div key={s.label}>
+          <b className="h-display">{s.value}</b>
+          <span>{s.label}</span>
+        </div>
+      ))}
+    </div>
+  );
+}
 
 export default async function Home({ params }: PageProps<"/[lang]">) {
   const { lang } = await params;
@@ -127,6 +142,13 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
                 <span key={s}>{s}</span>
               ))}
             </div>
+            <div className="works-cta">
+              <Link className="btn btn-dark" href={`/${lang}/works`}>
+                <span>{t.works.open}</span>
+                <small>{works.length} {t.works.projects}</small>
+                <span className="arr">→</span>
+              </Link>
+            </div>
           </div>
         </section>
 
@@ -184,6 +206,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
                   <span className="chip">{t.cases.safia.chip}</span>
                   <h3 className="h-display">Safia</h3>
                   <p>{t.cases.safia.text}</p>
+                  <CaseStats items={t.cases.safia.stats} />
                 </div>
               </article>
               <article className="case soon">
@@ -193,6 +216,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
                   <span className="chip">{t.cases.embassy.chip}</span>
                   <h3 className="h-display">Burger Embassy</h3>
                   <p>{t.cases.embassy.text}</p>
+                  <CaseStats items={t.cases.embassy.stats} />
                 </div>
               </article>
             </div>
