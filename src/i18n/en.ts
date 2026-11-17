@@ -78,7 +78,7 @@ const en: Dictionary = {
   catalog: {
     eyebrow: "Catalogue",
     title: ["What we", "make"],
-    lead: "Every piece is built to an individual project. No surcharge for non-standard sizes.",
+    lead: "Every piece is built to an individual project. Pricing is calculated individually, based on design and materials. No surcharge for non-standard sizes.",
     go: "Ask for a price",
     stylesLabel: "Styles:",
     styles: ["Modern", "Minimalism", "Provence", "Classic", "Neoclassic"],

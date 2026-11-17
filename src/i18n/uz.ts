@@ -78,7 +78,7 @@ const uz = {
   catalog: {
     eyebrow: "Katalog",
     title: ["Nimalarni", "ishlab chiqaramiz"],
-    lead: "Har bir mebel alohida loyiha asosida tayyorlanadi. Nostandart o‘lchamlar uchun qo‘shimcha haq olmaymiz.",
+    lead: "Har bir mebel alohida loyiha asosida tayyorlanadi. Narx dizayn va materialdan kelib chiqib, individual hisoblanadi. Nostandart o‘lchamlar uchun qo‘shimcha haq olmaymiz.",
     go: "Narxini bilish",
     stylesLabel: "Uslublar:",
     styles: ["Zamonaviy", "Minimalizm", "Provans", "Klassik", "Neoklassik"],
