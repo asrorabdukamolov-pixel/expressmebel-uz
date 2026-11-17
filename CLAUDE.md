@@ -19,7 +19,7 @@ Railway `main` ga har bir push'dan keyin saytni o'zi qayta joylaydi, shuning uch
 
 ## Eslatmalar
 - O'zbekcha matn adabiy tilda, ruscha so'zlarsiz yoziladi ("smeta" emas "hisob-kitob", "montaj" emas "o'rnatish", "kvartira" emas "uy"); o‘ g‘ uchun ‘ (U+2018), tutuq belgisi uchun ’ (U+2019).
-- Ranglar: zumrad fon, logotip firuzasi #008E9B (brend detallari), oltin gradient faqat tugma va va'dalarda. Shriftlar: Playfair Display + Onest.
+- Ranglar: 60% zumrad fon, 30% iliq fil suyagi (#F6F2EA), 10% aksent. Logotip firuzasi #008E9B faqat mayda detallarda. To'q "sochniy" oltin (`--gold-grad`) faqat tugma, chip va progress'da; sarlavhadagi so'zlar va raqamlarda yumshoq shampan oltini (`--champagne-grad`). Yangi rang qo'shilmaydi. Shriftlar: Playfair Display + Onest.
 - Kalitlar (Telegram, CRM, analitika) faqat `.env.local` / Railway Variables'da — repoga tushmaydi (`.env.example` ga qarang).
 - Hujjatlar bloki: `public/docs/` ga PDF yoki JPG/PNG/WEBP qo'yilsa, saytda avtomatik chiqadi (nom fayl nomidan, boshidagi raqam tartibni belgilaydi: `01-Sertifikat.pdf`). Papka bo'sh bo'lsa, bo'lim ko'rinmaydi.
 - Dev serverda CSS o'zgarmay qolsa: serverni to'xtatib, `.next` papkasini o'chirib, qayta ishga tushiring.
