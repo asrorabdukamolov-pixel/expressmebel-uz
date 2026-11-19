@@ -138,7 +138,7 @@ export function WorksCatalog({
                   </button>
                 ))}
               </div>
-              <a className="btn btn-gold" href={quizHref}>
+              <a className="btn btn-teal" href={quizHref}>
                 <span>{t.cta}</span>
                 <span className="arr">→</span>
               </a>

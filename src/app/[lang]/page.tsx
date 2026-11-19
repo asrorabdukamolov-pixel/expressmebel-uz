@@ -1,366 +1,218 @@
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getWorks } from "@/lib/telegramWorks";
 import { hasLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n";
-import { contacts, type CategoryId } from "@/lib/site";
-import { getDocuments } from "@/lib/documents";
+import { home2 } from "@/i18n/home2";
+import { contacts } from "@/lib/site";
 import { Header } from "@/components/Header";
-import { Segments } from "@/components/Segments";
-import { LeadForm } from "@/components/LeadForm";
 import { PrefillLink } from "@/components/PrefillLink";
-import { DreamSlider } from "@/components/DreamSlider";
 import { Quiz } from "@/components/Quiz";
+import { LeadForm } from "@/components/LeadForm";
 import { VideoReel } from "@/components/VideoReel";
-import { Bars, Title } from "@/components/ui";
+import { Bars } from "@/components/ui";
 
-const catalogCards: { id: CategoryId; img: string }[] = [
-  { id: "kitchen", img: "/img/editorial/e-kitchen.jpg" },
-  { id: "wardrobe", img: "/img/editorial/e-walkin.jpg" },
-  { id: "horeca", img: "/img/stock/s-horeca-gold.jpg" },
-  { id: "bedroom", img: "/img/editorial/e-nightstand.jpg" },
-  { id: "living", img: "/img/editorial/e-living.jpg" },
-  { id: "bath", img: "/img/editorial/e-mirror.jpg" },
+/* Bosh sahifa (brendbuk bo'yicha). Ko'rinish: Mossman (bo'sh joy, katta asimmetrik rasmlar, kam matn).
+   Sotuv: Lovekuhnya (afzallik kartalari, kviz, videolar). 10 bo'lim:
+   bosh ekran · raqamlar · katalog · afzalliklar · loyihalar · video · ish tartibi · fabrika · kviz · bog'lanish.
+   Eski sahifa: src/app/old-page.tsx.txt */
+
+/** Katalog setkasi: Mossman kabi har xil kenglik va rasm nisbati (12 ustunli setka). */
+const catLayout = [
+  { span: "c-8", ratio: "r-wide" },
+  { span: "c-4", ratio: "r-tall" },
+  { span: "c-5", ratio: "r-tall" },
+  { span: "c-7", ratio: "r-wide" },
+  { span: "c-7", ratio: "r-wide" },
+  { span: "c-5", ratio: "r-tall" },
 ];
-
-/** Completed apartment project; captions come from the dictionary in the same order. */
-const gallery = [
-  "/img/editorial/e-living.jpg",
-  "/img/editorial/e-shelf.jpg",
-  "/img/editorial/e-kitchen.jpg",
-  "/img/editorial/e-walkin.jpg",
-  "/img/editorial/e-nightstand.jpg",
-  "/img/editorial/e-table.jpg",
-];
-
-function CaseStats({ items }: { items: { value: string; label: string }[] }) {
-  return (
-    <div className="case-stats">
-      {items.map((s) => (
-        <div key={s.label}>
-          <b className="h-display">{s.value}</b>
-          <span>{s.label}</span>
-        </div>
-      ))}
-    </div>
-  );
-}
 
 export default async function Home({ params }: PageProps<"/[lang]">) {
   const { lang } = await params;
   if (!hasLocale(lang)) notFound();
   const t = await getDictionary(lang);
-  const [b1, s1, b2, s2] = t.hero.trust;
-  const docs = getDocuments();
-  const works = await getWorks();
+  const h = home2[lang];
 
   return (
     <>
       <Header lang={lang} dict={t} />
       <main id="top">
-        {/* Hero: the slogan, shown literally as dream → reality */}
-        <section className="hero dark">
-          <div className="wrap">
-            <div className="hero-grid">
-              <div className="hero-copy">
-                <div className="eyebrow rise">{t.hero.eyebrow}</div>
-                <Title as="h1" parts={t.hero.title} className="hero-title rise d2" />
-                <p className="lead rise d3">{t.hero.lead}</p>
-                <div className="rise d4 flex flex-wrap gap-3.5">
-                  <a className="btn btn-gold" href="#quiz">
-                    <span>{t.hero.cta1}</span>
-                    <span className="arr">→</span>
-                  </a>
-                  <a className="btn btn-ghost" href="#project">{t.hero.cta2}</a>
-                </div>
-                <p className="rise d4 text-sm text-[var(--gold-soft)]">{t.hero.assurance}</p>
-                <p className="trust rise d4">
-                  <span className="dot" />
-                  <span>
-                    {b1 && <b>{b1}</b>}
-                    {s1}
-                    {b2 && <b>{b2}</b>}
-                    {s2}
-                  </span>
-                </p>
+        {/* 1. Bosh ekran: bitta taklif, bitta asosiy tugma */}
+        <section className="hero">
+          <div className="wrap hero-grid">
+            <div className="hero-copy">
+              <div className="eyebrow">{h.hero.eyebrow}</div>
+              <h1 className="h-display hero-title">
+                {h.hero.title}
+                <br />
+                <span className="plate">{h.hero.plate}</span>
+              </h1>
+              <p className="lead">{h.hero.lead}</p>
+              <div className="hero-actions">
+                <a className="btn btn-teal" href="#quiz">
+                  <span>{h.hero.cta1}</span>
+                  <span className="arr">→</span>
+                </a>
+                <a className="btn btn-line" href="#projects">{h.hero.cta2}</a>
               </div>
-              <div className="hero-media">
-                <DreamSlider src="/img/stock/s-hero-kitchen.jpg" alt={t.catalog.items.kitchen} dream={t.hero.dream} reality={t.hero.reality} hint={t.hero.drag} />
-                <div className="hero-tag z-[5]">
-                  <b>{t.hero.tagValue}</b>
-                  {t.hero.tag}
-                </div>
-                <Bars />
-              </div>
+              <p className="trust">{h.hero.trust}</p>
             </div>
-            <div className="stats">
-              {t.stats.map((s) => (
-                <div className="stat" key={s.value}>
-                  <b>{s.value}</b>
-                  <span>{s.label}</span>
-                </div>
-              ))}
+            <div className="hero-media">
+              <div className="hero-photo">
+                <Image src="/img/editorial/e-living.jpg" alt={h.hero.photo} fill priority sizes="(max-width: 860px) 100vw, 50vw" className="object-cover" />
+              </div>
+              <span className="hero-cap">{h.hero.photo}</span>
+              <Bars />
             </div>
           </div>
         </section>
 
-        {/* Segments */}
-        <section className="section seg dark" id="segments">
-          <div className="wrap">
-            <div className="sec-head">
-              <div className="eyebrow">{t.segments.eyebrow}</div>
-              <Title parts={t.segments.title} />
-            </div>
-            <Segments t={t.segments} />
+        {/* 2. Raqamlar */}
+        <section className="stats-band" aria-label="Express Mebel raqamlarda">
+          <div className="wrap stats">
+            {h.stats.map((s) => (
+              <div className="stat" key={s.value}>
+                <b>{s.value}</b>
+                <span>{s.label}</span>
+              </div>
+            ))}
           </div>
         </section>
 
-        {/* Catalogue */}
-        <section className="section light" id="catalog">
+        {/* 3. Katalog: katta, asimmetrik rasmlar */}
+        <section className="section" id="catalog">
           <div className="wrap">
-            <div className="sec-head">
-              <div className="eyebrow">{t.catalog.eyebrow}</div>
-              <Title parts={t.catalog.title} />
-              <p className="lead">{t.catalog.lead}</p>
+            <div className="sec-row">
+              <div className="sec-head">
+                <div className="eyebrow">{h.catalog.eyebrow}</div>
+                <h2 className="h-display h2">{h.catalog.title}</h2>
+                <p className="lead">{h.catalog.lead}</p>
+              </div>
+              <Link className="btn btn-dark" href={`/${lang}/works`}>
+                <span>{h.catalog.all}</span>
+                <span className="arr">→</span>
+              </Link>
             </div>
             <div className="cat-grid">
-              {catalogCards.map(({ id, img }) => (
-                <PrefillLink key={id} prefill={{ category: id }} className="card">
-                  <div className="ph art relative aspect-[4/5]">
-                    <Image src={img} alt={t.catalog.items[id]} fill sizes="(max-width: 560px) 100vw, (max-width: 860px) 50vw, 33vw" className="object-cover" />
+              {h.catalog.items.map(({ id, name, img }, i) => (
+                <PrefillLink key={id} prefill={{ category: id }} className={`card ${catLayout[i].span} ${i % 2 ? "card-low" : ""}`}>
+                  <div className={`ph ${catLayout[i].ratio}`}>
+                    <Image src={img} alt={name} fill sizes="(max-width: 860px) 100vw, 60vw" className="object-cover" />
                   </div>
                   <div className="meta">
-                    <h3 className="h-display">{t.catalog.items[id]}</h3>
-                    <span className="go">{t.catalog.go} →</span>
+                    <h3 className="h-display">{name}</h3>
+                    <span className="go">{h.catalog.go} →</span>
                   </div>
                 </PrefillLink>
               ))}
             </div>
-            <div className="styles">
-              <span className="lbl">{t.catalog.stylesLabel}</span>
-              {t.catalog.styles.map((s) => (
-                <span key={s}>{s}</span>
+          </div>
+        </section>
+
+        {/* 4. Afzalliklar (Lovekuhnya usuli, brendbuk ranglarida) */}
+        <section className="section benefits-sec">
+          <div className="wrap">
+            <div className="sec-head">
+              <div className="eyebrow">{h.benefits.eyebrow}</div>
+              <h2 className="h-display h2">{h.benefits.title}</h2>
+            </div>
+            <div className="benefits">
+              {h.benefits.items.map((b) => (
+                <div className="benefit" key={b.title}>
+                  <b className="h-display">{b.value}</b>
+                  <h3>{b.title}</h3>
+                  <p>{b.text}</p>
+                </div>
               ))}
             </div>
-            <div className="works-cta">
+          </div>
+        </section>
+
+        {/* 5. Loyihalar */}
+        <section className="section" id="projects">
+          <div className="wrap">
+            <div className="sec-row">
+              <div className="sec-head">
+                <div className="eyebrow">{h.projects.eyebrow}</div>
+                <h2 className="h-display h2">{h.projects.title}</h2>
+              </div>
               <Link className="btn btn-dark" href={`/${lang}/works`}>
-                <span>{t.works.open}</span>
-                <small>{works.length} {t.works.projects}</small>
+                <span>{h.projects.all}</span>
                 <span className="arr">→</span>
               </Link>
             </div>
-          </div>
-        </section>
 
-        {/* Lead quiz: the main conversion point */}
-        <section className="section dark quiz-sec" id="quiz">
-          <div className="wrap quiz-grid">
-            <div className="form-side">
-              <div className="eyebrow">{t.quiz.eyebrow}</div>
-              <Title parts={t.quiz.title} />
-              <p className="lead">{t.quiz.lead}</p>
-              <ul className="checks">
-                {t.quiz.perks.map((p) => (
-                  <li key={p}>{p}</li>
+            <div className="nest">
+              <div className="nest-copy">
+                <h3 className="h-display">{h.projects.nest.title}</h3>
+                <p>{h.projects.nest.text}</p>
+              </div>
+              <div className="nest-grid">
+                {h.projects.nest.photos.map((p, i) => (
+                  <figure key={p.src} className={`n-item n-${i}`}>
+                    <Image src={p.src} alt={p.cap} fill sizes={i === 0 ? "(max-width: 860px) 100vw, 60vw" : "(max-width: 860px) 50vw, 30vw"} className="object-cover" />
+                    <figcaption>{p.cap}</figcaption>
+                  </figure>
                 ))}
-              </ul>
+              </div>
             </div>
-            <Quiz lang={lang} t={t.quiz} lead={t.lead} segments={t.segments.items} categories={t.catalog.items} />
-          </div>
-        </section>
 
-        {/* Completed project gallery */}
-        <section className="section light pt-0" id="project">
-          <div className="wrap">
-            <div className="sec-head">
-              <div className="eyebrow">{t.gallery.eyebrow}</div>
-              <Title parts={t.gallery.title} />
-              <p className="lead">{t.gallery.lead}</p>
-            </div>
-            <div className="gallery">
-              {gallery.map((src, i) => (
-                <figure key={src} className={`g-item art g-${i}`}>
-                  <Image src={src} alt={t.gallery.captions[i]} fill sizes={i === 0 ? "(max-width: 860px) 100vw, 50vw" : "(max-width: 860px) 50vw, 25vw"} className="object-cover" />
-                  <figcaption>{t.gallery.captions[i]}</figcaption>
-                </figure>
+            <div className="clients">
+              {h.projects.clients.map((c) => (
+                <article className="client" key={c.name}>
+                  <div className="client-ph">
+                    <Image src={c.img} alt={c.name} fill sizes="(max-width: 860px) 100vw, 50vw" className="object-cover" />
+                  </div>
+                  <div className="client-body">
+                    <div className="client-top">
+                      <Image src={c.logo} alt={c.name} width={120} height={80} className="client-logo" />
+                      <h3 className="h-display">{c.name}</h3>
+                    </div>
+                    <p>{c.text}</p>
+                    <div className="client-stats">
+                      {c.stats.map((s) => (
+                        <div key={s.label}>
+                          <b className="h-display">{s.value}</b>
+                          <span>{s.label}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </article>
               ))}
             </div>
           </div>
         </section>
 
-        {/* HoReCa cases */}
-        <section className="section dark" id="cases">
+        {/* 6. Videolar */}
+        <section className="section dark-sec" id="video">
           <div className="wrap">
             <div className="sec-head">
-              <div className="eyebrow">{t.cases.eyebrow}</div>
-              <Title parts={t.cases.title} />
-              <p className="lead">{t.cases.lead}</p>
+              <div className="eyebrow eyebrow-light">{h.videos.eyebrow}</div>
+              <h2 className="h-display h2">{h.videos.title}</h2>
+              <p className="lead">{h.videos.lead}</p>
             </div>
-            <div className="cases">
-              <article className="case art">
-                <Image src="/img/safia-1.jpg" alt="Safia" fill sizes="(max-width: 860px) 100vw, 55vw" className="object-cover" />
-                <div className="case-body">
-                  <span className="client-logo">
-                    <Image src="/brand/clients/safia-logo.jpg" alt="Safia café & bakery" width={308} height={187} className="h-14 w-auto" />
-                  </span>
-                  <span className="chip">{t.cases.safia.chip}</span>
-                  <h3 className="h-display">Safia</h3>
-                  <p>{t.cases.safia.text}</p>
-                  <CaseStats items={t.cases.safia.stats} />
-                </div>
-              </article>
-              {/* Replace public/img/cases/embassy.jpg with a real photo of an Embassy branch to update this card */}
-              <article className="case art">
-                <Image src="/img/cases/embassy.jpg" alt="Burger Embassy" fill sizes="(max-width: 860px) 100vw, 45vw" className="object-cover" />
-                <div className="case-body">
-                  <Image src="/brand/clients/burger-embassy-logo.jpg" alt="Burger Embassy — Embassy of Burgers" width={150} height={150} className="client-round" />
-                  <span className="chip">{t.cases.embassy.chip}</span>
-                  <h3 className="h-display">Burger Embassy</h3>
-                  <p>{t.cases.embassy.text}</p>
-                  <CaseStats items={t.cases.embassy.stats} />
-                </div>
-              </article>
-            </div>
-          </div>
-        </section>
-
-        {/* Brand film */}
-        <section className="section light film" id="film">
-          <div className="wrap film-grid">
-            <VideoReel src="/video/overview.mp4" coverAt={42} label={t.film.play} />
-            <div className="grid min-w-0 content-center gap-7">
-              <div className="sec-head !m-0">
-                <div className="eyebrow">{t.film.eyebrow}</div>
-                <Title parts={t.film.title} />
-                <p className="lead">{t.film.lead}</p>
-              </div>
-              <ol className="film-chapters">
-                {t.film.chapters.map((c) => (
-                  <li key={c}>{c}</li>
-                ))}
-              </ol>
-              <div>
-                <a className="btn btn-gold" href="#lead">
-                  <span>{t.film.cta}</span>
-                  <span className="arr">→</span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Founder: a face behind the company, values with proof */}
-        <section className="section dark founder" id="founder">
-          <div className="wrap film-grid">
-            <div className="grid justify-items-center gap-5">
-              <VideoReel src="/video/founder.mp4" coverAt={2} label={t.founder.play} />
-              <div className="founder-sign">
-                <b className="h-display">{t.founder.name}</b>
-                <span>{t.founder.role}</span>
-              </div>
-            </div>
-            <div className="grid min-w-0 content-center gap-8">
-              <div className="sec-head !m-0">
-                <div className="eyebrow">{t.founder.eyebrow}</div>
-                <Title parts={t.founder.title} />
-                <p className="lead">{t.founder.lead}</p>
-              </div>
-              <div className="values">
-                <div className="values-title">{t.founder.valuesTitle}</div>
-                {t.founder.values.map((v) => (
-                  <div className="value" key={v.title}>
-                    <b className="h-display">{v.title}</b>
-                    <span>{v.proof}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Guarantees: answer the fears before they are asked */}
-        <section className="section seg dark">
-          <div className="wrap">
-            <div className="sec-head">
-              <div className="eyebrow">{t.guarantees.eyebrow}</div>
-              <Title parts={t.guarantees.title} />
-            </div>
-            <div className="guar">
-              {t.guarantees.items.map((g) => (
-                <div key={g.title}>
-                  <span className="ico" aria-hidden="true" />
-                  <h3 className="h-display">{g.title}</h3>
-                  <p>{g.text}</p>
+            <div className="videos">
+              {h.videos.items.map((v) => (
+                <div className="video" key={v.src}>
+                  <VideoReel src={v.src} coverAt={v.cover} label={h.videos.play} />
+                  <h3 className="h-display">{v.title}</h3>
+                  <p>{v.text}</p>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Mid-page call to action */}
-        <section className="band dark">
-          <Image src="/img/stock/s-pendants.jpg" alt="" fill sizes="100vw" className="band-bg z-0 object-cover opacity-45" />
-          <Bars />
-          <div className="wrap band-inner">
-            <div>
-              <Title parts={t.band.title} />
-              <p>{t.band.text}</p>
-            </div>
-            <a className="btn btn-gold" href="#quiz">
-              <span>{t.band.cta}</span>
-              <span className="arr">→</span>
-            </a>
-          </div>
-        </section>
-
-        {/* Factory */}
-        <section className="section light" id="factory">
-          <div className="wrap fac-grid">
-            <div className="fac-media">
-              <div className="chamfer art relative aspect-[4/5] w-full">
-                <Image src="/img/stock/s-cnc.jpg" alt="" fill sizes="(max-width: 860px) 100vw, 50vw" className="object-cover" />
-              </div>
-              <div className="sites">
-                {t.factory.sites.map((s) => (
-                  <div className="site" key={s.value}>
-                    <b>{s.value}</b>
-                    <span>{s.label}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="grid min-w-0 gap-8">
-              <div className="sec-head !m-0">
-                <div className="eyebrow">{t.factory.eyebrow}</div>
-                <Title parts={t.factory.title} />
-                <p className="lead">{t.factory.lead}</p>
-              </div>
-              <div className="facts">
-                {t.factory.facts.map((f) => (
-                  <div className="fact" key={f.title}>
-                    <b>{f.title}</b>
-                    <span>{f.text}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Process */}
-        <section className="section process light">
+        {/* 7. Ish tartibi */}
+        <section className="section">
           <div className="wrap">
-            <div className="process-head">
-              <div className="sec-head !m-0">
-                <div className="eyebrow">{t.process.eyebrow}</div>
-                <Title parts={t.process.title} />
-                <p className="lead">{t.process.lead}</p>
-              </div>
-              <VideoReel src="/video/term-25-days.mp4" coverAt={2} label={t.process.video} />
+            <div className="sec-head">
+              <div className="eyebrow">{h.process.eyebrow}</div>
+              <h2 className="h-display h2">{h.process.title}</h2>
             </div>
             <ol className="steps">
-              {t.process.steps.map((s) => (
+              {h.process.steps.map((s) => (
                 <li key={s.title}>
                   <h3 className="h-display">{s.title}</h3>
                   <p>{s.text}</p>
@@ -370,46 +222,78 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
           </div>
         </section>
 
-        {/* Documents: a compact strip; files from public/docs appear here automatically */}
-        {docs.length > 0 && (
-          <section className="docs-sec light" id="docs">
-            <div className="wrap docs-grid">
-              <div className="grid gap-2">
-                <div className="eyebrow">{t.docs.eyebrow}</div>
-                <p className="docs-title h-display">{t.docs.title}</p>
+        {/* 8. Fabrika */}
+        <section className="section light-sec" id="factory">
+          <div className="wrap fac-grid">
+            <div className="fac-ph">
+              <Image src={h.factory.img} alt="" fill sizes="(max-width: 860px) 100vw, 50vw" className="object-cover" />
+            </div>
+            <div className="fac-copy">
+              <div className="sec-head !m-0">
+                <div className="eyebrow">{h.factory.eyebrow}</div>
+                <h2 className="h-display h2">{h.factory.title}</h2>
+                <p className="lead">{h.factory.lead}</p>
               </div>
-              <div className="docs">
-                {docs.map((d) => (
-                  <a key={d.href} className="doc" href={d.href} target="_blank" rel="noopener">
-                    <span className="doc-ico" aria-hidden="true">{d.ext}</span>
-                    <span className="doc-name">{d.title}</span>
-                    <span className="doc-open">{t.docs.open} ↗</span>
-                  </a>
+              <div className="sites">
+                {h.factory.sites.map((s) => (
+                  <div key={s.value}>
+                    <b className="h-display">{s.value}</b>
+                    <span>{s.label}</span>
+                  </div>
+                ))}
+              </div>
+              <div className="facts">
+                {h.factory.facts.map((f) => (
+                  <div key={f.title}>
+                    <b>{f.title}</b>
+                    <span>{f.text}</span>
+                  </div>
                 ))}
               </div>
             </div>
-          </section>
-        )}
+          </div>
+        </section>
 
-        {/* Lead form */}
-        <section className="section dark" id="lead">
+        {/* 9. Kviz: asosiy ariza */}
+        <section className="section" id="quiz">
+          <div className="wrap quiz-grid">
+            <div className="quiz-side">
+              <div className="eyebrow">{h.quiz.eyebrow}</div>
+              <h2 className="h-display h2">{h.quiz.title}</h2>
+              <p className="lead">{h.quiz.lead}</p>
+              <ul className="checks">
+                {h.quiz.perks.map((p) => (
+                  <li key={p}>{p}</li>
+                ))}
+              </ul>
+            </div>
+            <Quiz lang={lang} t={t.quiz} lead={t.lead} segments={t.segments.items} categories={t.catalog.items} />
+          </div>
+        </section>
+
+        {/* 10. Bog'lanish */}
+        <section className="section dark-sec" id="lead">
           <div className="wrap form-grid">
             <div className="form-side">
-              <div className="eyebrow">{t.lead.eyebrow}</div>
-              <Title parts={t.lead.title} />
-              <p className="lead">{t.lead.lead}</p>
+              <div className="eyebrow eyebrow-light">{h.contact.eyebrow}</div>
+              <h2 className="h-display h2">{h.contact.title}</h2>
+              <p className="lead">{h.contact.lead}</p>
               <div className="contacts">
                 <div>
-                  <small>{t.lead.phoneLabel}</small>
-                  <a href={contacts.phoneHref}>{t.lead.phone}</a>
+                  <small>{h.contact.phoneLabel}</small>
+                  <a href={contacts.phoneHref}>{contacts.phone}</a>
                 </div>
                 <div>
-                  <small>{t.lead.office}</small>
-                  <span>{t.lead.address}</span>
+                  <small>{h.contact.officeLabel}</small>
+                  <span>{h.contact.address}</span>
                 </div>
                 <div>
-                  <small>Instagram</small>
-                  <a href={contacts.instagram} target="_blank" rel="noopener">@express_mebel__uz</a>
+                  <small>Instagram · Telegram</small>
+                  <span>
+                    <a href={contacts.instagram} target="_blank" rel="noopener">@express_mebel__uz</a>
+                    {" · "}
+                    <a href={contacts.telegramCatalog} target="_blank" rel="noopener">Telegram katalog</a>
+                  </span>
                 </div>
               </div>
             </div>
@@ -418,17 +302,16 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
         </section>
       </main>
 
-      <footer className="site-footer dark">
+      <footer className="site-footer">
         <div className="wrap foot">
-          <Image src="/brand/logo-light.webp" alt="Express Mebel" width={2000} height={515} className="h-10 w-auto" />
+          <Image src="/brand/logo-light.webp" alt="Express Mebel" width={2000} height={516} className="h-10 w-auto" />
           <span>{t.footer.rights}</span>
         </div>
       </footer>
 
-      {/* Phone-width sticky bar: call or request in one tap */}
       <div className="mbar">
-        <a className="btn btn-ghost" href={contacts.phoneHref}>{t.nav.call}</a>
-        <a className="btn btn-gold" href="#quiz">{t.nav.cta}</a>
+        <a className="btn btn-line" href={contacts.phoneHref}>{t.nav.call}</a>
+        <a className="btn btn-teal" href="#quiz">{t.nav.cta}</a>
       </div>
     </>
   );

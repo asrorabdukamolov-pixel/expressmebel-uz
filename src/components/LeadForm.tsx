@@ -95,7 +95,7 @@ export function LeadForm({
       <div className="hp" aria-hidden="true">
         <input name="website" tabIndex={-1} autoComplete="off" />
       </div>
-      <button className="btn btn-gold" type="submit" disabled={status === "sending"}>
+      <button className="btn btn-teal" type="submit" disabled={status === "sending"}>
         <span>{status === "sending" ? t.sending : t.send}</span>
         <span className="arr">→</span>
       </button>

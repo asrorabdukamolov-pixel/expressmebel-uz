@@ -36,7 +36,7 @@ export default async function WorksPage({ params }: PageProps<"/[lang]/works">) 
     <>
       <Header lang={lang} dict={t} path="/works" />
       <main>
-        <section className="section light works-sec">
+        <section className="section works-sec">
           <div className="wrap">
             <div className="works-head">
               <div className="sec-head !m-0">
@@ -64,15 +64,15 @@ export default async function WorksPage({ params }: PageProps<"/[lang]/works">) 
           </div>
         </section>
       </main>
-      <footer className="site-footer dark">
+      <footer className="site-footer">
         <div className="wrap foot">
           <Image src="/brand/logo-light.webp" alt="Express Mebel" width={2000} height={515} className="h-10 w-auto" />
           <span>{t.footer.rights}</span>
         </div>
       </footer>
       <div className="mbar">
-        <a className="btn btn-ghost" href={contacts.phoneHref}>{t.nav.call}</a>
-        <a className="btn btn-gold" href={`/${lang}#quiz`}>{t.nav.cta}</a>
+        <a className="btn btn-line" href={contacts.phoneHref}>{t.nav.call}</a>
+        <a className="btn btn-teal" href={`/${lang}#quiz`}>{t.nav.cta}</a>
       </div>
     </>
   );

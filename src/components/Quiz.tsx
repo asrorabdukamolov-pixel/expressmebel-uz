@@ -139,7 +139,7 @@ export function Quiz({
           <h3 className="h-display q-title">{t.done.title}</h3>
           <p className="lead">{t.done.text}</p>
           <div>
-            <button type="button" className="btn btn-ghost" onClick={restart}>{t.done.restart}</button>
+            <button type="button" className="btn btn-line" onClick={restart}>{t.done.restart}</button>
           </div>
         </div>
       ) : (
@@ -214,7 +214,7 @@ export function Quiz({
                   </button>
                 ))}
               </div>
-              <button className="btn btn-gold" type="submit" disabled={status === "sending"}>
+              <button className="btn btn-teal" type="submit" disabled={status === "sending"}>
                 <span>{status === "sending" ? lead.sending : t.contact.send}</span>
                 <span className="arr">→</span>
               </button>
@@ -231,7 +231,7 @@ export function Quiz({
               <span />
             )}
             {showNext && (
-              <button type="button" className="btn btn-gold" disabled={!canNext} onClick={() => go(1)}>
+              <button type="button" className="btn btn-teal" disabled={!canNext} onClick={() => go(1)}>
                 <span>{t.next}</span>
                 <span className="arr">→</span>
               </button>

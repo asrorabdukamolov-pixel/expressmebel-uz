@@ -1,23 +1,26 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Onest, Playfair_Display } from "next/font/google";
+import { Montserrat, Prompt } from "next/font/google";
 import { hasLocale, htmlLang, locales, ogLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n";
 import { siteUrl } from "@/lib/site";
 import { Analytics } from "@/components/Analytics";
 import "../globals.css";
 
-const display = Playfair_Display({
+/* Brendbuk: Prompt - lotin yozuvi, Montserrat - kirill. Prompt'da kirill yo'q,
+   shuning uchun ruscha harflar avtomatik Montserrat'da chiqadi. */
+const display = Prompt({
   variable: "--font-display-face",
-  subsets: ["latin", "cyrillic"],
+  subsets: ["latin", "latin-ext"],
   weight: ["400", "500", "600"],
   style: ["normal", "italic"],
 });
 
-const body = Onest({
+const body = Montserrat({
   variable: "--font-body-face",
   subsets: ["latin", "cyrillic"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "500", "600"],
+  style: ["normal", "italic"],
 });
 
 export function generateStaticParams() {
