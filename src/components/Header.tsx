@@ -13,7 +13,7 @@ export function Header({ lang, dict, path = "" }: { lang: Locale; dict: Dictiona
     <header className="site-header">
       <div className="wrap nav">
         <Link href={home} aria-label="Express Mebel" className="shrink-0">
-          <Image src="/brand/logo-dark.webp" alt="Express Mebel" width={2000} height={516} priority className="logo-img" />
+          <Image src="/brand/logo-light.webp" alt="Express Mebel" width={2000} height={516} priority className="logo-img" />
         </Link>
         <ul className="nav-links">
           <li><a href={`${home}#catalog`}>{n.catalog}</a></li>

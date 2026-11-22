@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useCallback, useRef, useState, type KeyboardEvent, type PointerEvent } from "react";
 
 /**
- * Signature hero piece for the slogan: the same room shown as a gold line sketch ("dream")
+ * Signature hero piece for the slogan: the same room shown as a teal line sketch ("dream")
  * and as the finished interior ("reality"). Drag, tap or use arrow keys to move the divider.
  */
 export function DreamSlider({ src, alt, dream, reality, hint }: { src: string; alt: string; dream: string; reality: string; hint: string }) {
@@ -68,7 +68,7 @@ export function DreamSlider({ src, alt, dream, reality, hint }: { src: string; a
             <feFuncG type="linear" slope="11" intercept="-0.06" />
             <feFuncB type="linear" slope="11" intercept="-0.06" />
           </feComponentTransfer>
-          <feColorMatrix type="matrix" values="0.29 0.29 0.29 0 0  0.23 0.23 0.23 0 0  0.11 0.11 0.11 0 0  0 0 0 1 0" />
+          <feColorMatrix type="matrix" values="0.18 0.18 0.18 0 0  0.28 0.28 0.28 0 0  0.29 0.29 0.29 0 0  0 0 0 1 0" />
         </filter>
       </svg>
     </div>
