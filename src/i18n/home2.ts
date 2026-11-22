@@ -69,11 +69,11 @@ const uz = {
     all: "Barcha ishlarimiz",
     items: [
       { id: "kitchen", name: "Oshxonalar", img: "/img/premium/cat-kitchen.jpg" },
-      { id: "wardrobe", name: "Shkaf va garderoblar", img: "/img/premium/cat-wardrobe2.jpg" },
+      { id: "wardrobe", name: "Shkaf va garderoblar", img: "/img/premium/cat-wardrobe-showroom.jpg" },
       { id: "living", name: "Mehmonxonalar", img: "/img/premium/cat-living.jpg" },
       { id: "bedroom", name: "Yotoqxonalar", img: "/img/premium/cat-bedroom.jpg" },
       { id: "horeca", name: "Restoran va kafelar", img: "/img/premium/cat-horeca.jpg" },
-      { id: "bath", name: "Dahliz va hammomlar", img: "/img/premium/cat-hall.jpg" },
+      { id: "bath", name: "Dahliz va hammomlar", img: "/img/premium/cat-hall2.jpg" },
     ] as { id: CategoryId; name: string; img: string }[],
   },
   nest: {
