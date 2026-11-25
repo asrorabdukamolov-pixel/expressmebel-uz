@@ -1,26 +1,17 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Montserrat, Prompt } from "next/font/google";
+import { Manrope } from "next/font/google";
 import { hasLocale, htmlLang, locales, ogLocale } from "@/i18n/config";
 import { getDictionary } from "@/i18n";
 import { siteUrl } from "@/lib/site";
 import { Analytics } from "@/components/Analytics";
 import "../globals.css";
 
-/* Brendbuk: Prompt - lotin yozuvi, Montserrat - kirill. Prompt'da kirill yo'q,
-   shuning uchun ruscha harflar avtomatik Montserrat'da chiqadi. */
-const display = Prompt({
+/* 2026-11-25, Asror aka: mossman.ru shrifti - Manrope (lotin + kirill bitta shriftda). */
+const manrope = Manrope({
   variable: "--font-display-face",
-  subsets: ["latin", "latin-ext"],
-  weight: ["400", "500", "600"],
-  style: ["normal", "italic"],
-});
-
-const body = Montserrat({
-  variable: "--font-body-face",
-  subsets: ["latin", "cyrillic"],
-  weight: ["400", "500", "600"],
-  style: ["normal", "italic"],
+  subsets: ["latin", "latin-ext", "cyrillic"],
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 export function generateStaticParams() {
@@ -54,7 +45,7 @@ export default async function RootLayout({ children, params }: LayoutProps<"/[la
   if (!hasLocale(lang)) notFound();
 
   return (
-    <html lang={htmlLang[lang]} className={`${display.variable} ${body.variable}`}>
+    <html lang={htmlLang[lang]} className={manrope.variable}>
       <body>
         {children}
         <Analytics />

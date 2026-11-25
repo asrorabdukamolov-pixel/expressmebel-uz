@@ -4,7 +4,7 @@ const uz = {
   meta: {
     title: "Express Mebel fabrikasi — buyurtma asosida mebel, Toshkent",
     description:
-      "Restoran, mehmonxona, ofis va turar-joy majmualari uchun buyurtma asosida mebel. 2012-yildan beri, o‘z fabrikamiz, 2 yil kafolat.",
+      "Restoran, mehmonxona, ofis va turar-joy majmualari uchun buyurtma asosida mebel. 2013-yildan beri, o‘z fabrikamiz, 2 yil kafolat.",
   },
   nav: { segments: "Kimlar uchun", catalog: "Katalog", cases: "Loyihalar", factory: "Fabrika", cta: "Loyihani hisoblash", menu: "Menyu", call: "Qo‘ng‘iroq qilish" },
   hero: {
@@ -42,10 +42,10 @@ const uz = {
     cta: "Loyihamni boshlash",
   },
   stats: [
-    { value: "2012", label: "yildan beri bozorda" },
+    { value: "2013", label: "yildan beri bozorda" },
     { value: "1 400 m²", label: "o‘z ishlab chiqarish maydonimiz" },
     { value: "25", label: "ish kunidan boshlab tayyorlanadi" },
-    { value: "10 000+", label: "amalga oshirilgan loyiha" },
+    { value: "3 000+", label: "amalga oshirilgan loyiha" },
     { value: "3 000+", label: "RAL va NCS ranglari" },
   ],
   segments: {
@@ -210,7 +210,7 @@ const uz = {
   },
   founder: {
     eyebrow: "Asoschi so‘zi",
-    title: ["2012-yildan beri", "oilaviy kompaniya"],
+    title: ["2013-yildan beri", "oilaviy kompaniya"],
     lead: "«Express Mebel» — qadriyatlari har bir mahsulotida aks etgan oilaviy kompaniya. Asoschimiz Asror Abdukamolov kompaniya qanday ishlashi haqida o‘zi so‘zlab beradi.",
     name: "Asror Abdukamolov",
     role: "Express Mebel asoschisi va rahbari",
@@ -263,7 +263,7 @@ const uz = {
       restart: "Yana bir loyihani hisoblash",
     },
   },
-  footer: { rights: "© 2012–2026 «Express Mebel» MChJ · Toshkent" },
+  footer: { rights: "© 2013–2026 «Express Mebel» MChJ · Toshkent" },
 };
 
 export default uz;

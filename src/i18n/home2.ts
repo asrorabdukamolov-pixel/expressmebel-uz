@@ -7,7 +7,7 @@ import type { CategoryId, SegmentId } from "@/lib/site";
 const uz = {
   nav: { catalog: "Katalog", projects: "Loyihalar", factory: "Fabrika", contact: "Bog‘lanish" },
   hero: {
-    eyebrow: "Express Mebel · Toshkent · 2012-yildan",
+    eyebrow: "Express Mebel · Toshkent · 2013-yildan",
     title: "Siz orzu qiling,",
     plate: "biz amalga oshiramiz",
     lead: "Oshxona, garderob va butun uy mebeli xonangiz o‘lchamida, o‘z fabrikamizda yasaladi. Topshirish sanasi shartnomaga yoziladi.",
@@ -15,7 +15,7 @@ const uz = {
     cta2: "Ishlarimiz",
     photo: "Express Mebel: fabrika va tayyor interyerlar",
     stats: [
-      { value: "2012", label: "yildan beri" },
+      { value: "2013", label: "yildan beri" },
       { value: "1 400 m²", label: "o‘z fabrikamiz" },
       { value: "25 kun", label: "tayyorlash muddati" },
     ],
@@ -35,7 +35,7 @@ const uz = {
       { title: "Baxtli mijoz, baxtli xodim, baxtli jamiyat", proof: "Safia bilan 1,5 yil, Burger Embassy bilan 1 yildan beri" },
     ],
     facts: [
-      { value: "10 000+", label: "bajarilgan buyurtma" },
+      { value: "3 000+", label: "bajarilgan loyiha" },
       { value: "1 jamoa", label: "o‘lchovdan o‘rnatishgacha" },
       { value: "3 000+", label: "RAL va NCS ranglari" },
     ],
@@ -185,7 +185,7 @@ export type Home2 = typeof uz;
 const ru: Home2 = {
   nav: { catalog: "Каталог", projects: "Проекты", factory: "Фабрика", contact: "Контакты" },
   hero: {
-    eyebrow: "Express Mebel · Ташкент · с 2012 года",
+    eyebrow: "Express Mebel · Ташкент · с 2013 года",
     title: "Вы мечтаете,",
     plate: "мы воплощаем",
     lead: "Кухни, гардеробные и мебель для всего дома по размерам вашего помещения, на нашей собственной фабрике. Дата сдачи прописывается в договоре.",
@@ -193,7 +193,7 @@ const ru: Home2 = {
     cta2: "Наши работы",
     photo: "Express Mebel: фабрика и готовые интерьеры",
     stats: [
-      { value: "2012", label: "года на рынке" },
+      { value: "2013", label: "год основания" },
       { value: "1 400 м²", label: "собственная фабрика" },
       { value: "25 дней", label: "срок изготовления" },
     ],
@@ -213,7 +213,7 @@ const ru: Home2 = {
       { title: "Счастливый клиент, счастливый сотрудник, счастливое общество", proof: "С Safia 1,5 года, с Burger Embassy больше года" },
     ],
     facts: [
-      { value: "10 000+", label: "выполненных заказов" },
+      { value: "3 000+", label: "выполненных проектов" },
       { value: "1 команда", label: "от замера до монтажа" },
       { value: "3 000+", label: "цветов RAL и NCS" },
     ],
@@ -349,7 +349,7 @@ const ru: Home2 = {
 const en: Home2 = {
   nav: { catalog: "Catalog", projects: "Projects", factory: "Factory", contact: "Contact" },
   hero: {
-    eyebrow: "Express Mebel · Tashkent · since 2012",
+    eyebrow: "Express Mebel · Tashkent · since 2013",
     title: "You dream it,",
     plate: "we make it real",
     lead: "Kitchens, wardrobes and furniture for the whole home, made to the size of your room in our own factory. The handover date is written into the contract.",
@@ -357,7 +357,7 @@ const en: Home2 = {
     cta2: "Our work",
     photo: "Express Mebel: factory and finished interiors",
     stats: [
-      { value: "2012", label: "in business since" },
+      { value: "2013", label: "founded" },
       { value: "1,400 m²", label: "our own factory" },
       { value: "25 days", label: "production time" },
     ],
@@ -377,7 +377,7 @@ const en: Home2 = {
       { title: "Happy client, happy team, happy society", proof: "1.5 years with Safia, over a year with Burger Embassy" },
     ],
     facts: [
-      { value: "10,000+", label: "orders completed" },
+      { value: "3,000+", label: "projects completed" },
       { value: "1 team", label: "from measuring to installation" },
       { value: "3,000+", label: "RAL and NCS colours" },
     ],

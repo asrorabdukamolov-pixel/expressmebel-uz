@@ -4,7 +4,10 @@ import { siteUrl } from "@/lib/site";
 
 const pages = [
   { path: "", priority: 1 },
-  { path: "/works", priority: 0.8 },
+  { path: "/catalog", priority: 0.9 },
+  { path: "/projects", priority: 0.8 },
+  { path: "/about", priority: 0.7 },
+  { path: "/office", priority: 0.7 },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

@@ -4,7 +4,7 @@ const en: Dictionary = {
   meta: {
     title: "Express Mebel factory — made-to-order furniture in Tashkent",
     description:
-      "Custom cabinet furniture for restaurants, hotels, offices and residential developments. Since 2012, our own factory, 2-year warranty.",
+      "Custom cabinet furniture for restaurants, hotels, offices and residential developments. Since 2013, our own factory, 2-year warranty.",
   },
   nav: { segments: "Who we serve", catalog: "Catalogue", cases: "Projects", factory: "Factory", cta: "Price my project", menu: "Menu", call: "Call" },
   hero: {
@@ -42,10 +42,10 @@ const en: Dictionary = {
     cta: "Start my project",
   },
   stats: [
-    { value: "2012", label: "year founded" },
+    { value: "2013", label: "year founded" },
     { value: "1 400 m²", label: "of our own production floor" },
     { value: "25", label: "working days minimum lead time" },
-    { value: "10 000+", label: "projects delivered" },
+    { value: "3,000+", label: "projects delivered" },
     { value: "3 000+", label: "RAL and NCS colours" },
   ],
   segments: {
@@ -210,7 +210,7 @@ const en: Dictionary = {
   },
   founder: {
     eyebrow: "A word from the founder",
-    title: ["A family company", "since 2012"],
+    title: ["A family company", "since 2013"],
     lead: "Express Mebel is a family company whose values show in every piece it makes. Our founder, Asror Abdukamolov, explains in his own words how the company works.",
     name: "Asror Abdukamolov",
     role: "Founder and head of Express Mebel",
@@ -263,7 +263,7 @@ const en: Dictionary = {
       restart: "Price another project",
     },
   },
-  footer: { rights: "© 2012–2026 Express Mebel LLC · Tashkent" },
+  footer: { rights: "© 2013–2026 Express Mebel LLC · Tashkent" },
 };
 
 export default en;

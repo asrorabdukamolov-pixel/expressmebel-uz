@@ -14,13 +14,21 @@ export function WorksCatalog({
   t,
   categories,
   quizHref,
+  initialCat = "all",
 }: {
   works: Work[];
   t: Dictionary["works"];
   categories: Dictionary["catalog"]["items"];
   quizHref: string;
+  initialCat?: Cat | "all";
 }) {
-  const [cat, setCat] = useState<Cat | "all">("all");
+  const [cat, setCat] = useState<Cat | "all">(initialCat);
+
+  // Katalogdan kelganda (?c=kitchen) shu tur tanlangan holda ochiladi.
+  useEffect(() => {
+    const c = new URLSearchParams(window.location.search).get("c");
+    if (c && (CATS as string[]).includes(c)) setCat(c as Cat);
+  }, []);
   const [style, setStyle] = useState<WorkStyle | "all">("all");
   const [open, setOpen] = useState<{ work: Work; i: number } | null>(null);
 
@@ -76,20 +84,19 @@ export function WorksCatalog({
         <div className="w-grid">
           {list.map((w, n) => (
             <button key={w.id} type="button" className="w-card" onClick={() => setOpen({ work: w, i: 0 })}>
-              <span className="ph art relative block aspect-[4/5]">
+              <span className="ph art relative block">
                 <Image
                   src={w.photos[0]}
                   alt={`${categories[w.category]} · ${t.styles[w.style]}`}
                   fill
-                  sizes="(max-width: 560px) 100vw, (max-width: 980px) 50vw, 33vw"
+                  sizes="(max-width: 560px) 100vw, 60vw"
                   className="object-cover"
                   priority={n < 3}
                 />
                 <span className="w-count">{w.photos.length} {t.photos}</span>
               </span>
               <span className="w-meta">
-                <b className="h-display">{categories[w.category]}</b>
-                <span>{t.styles[w.style]}</span>
+                {categories[w.category]} / {t.styles[w.style]}
               </span>
             </button>
           ))}
