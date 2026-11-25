@@ -56,7 +56,6 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
         <section className="hero">
           <div className="hero-panel">
             <div className="hero-copy">
-              <div className="eyebrow eyebrow-light">{h.hero.eyebrow}</div>
               <h1 className="h-display hero-title">
                 <span className="ln"><span>{h.hero.title}</span></span>
                 <span className="ln"><span className="plate">{h.hero.plate}</span></span>
