@@ -16,7 +16,7 @@ export const catalogImages: Partial<Record<CategoryId, string>> = {
 export const projectCats = ["kitchen", "wardrobe", "living", "bedroom"] as const;
 
 export function catHref(lang: Locale, id: CategoryId) {
-  return (projectCats as readonly string[]).includes(id) ? `/${lang}/projects?c=${id}` : `/${lang}/office`;
+  return (projectCats as readonly string[]).includes(id) ? `/${lang}/projects?c=${id}` : `/${lang}/projects`;
 }
 
 export function catalogCards(lang: Locale) {
