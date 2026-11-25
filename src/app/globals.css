@@ -861,3 +861,6 @@ body { font-family: var(--font-display-face), "Segoe UI", system-ui, sans-serif;
 .office-form { padding-bottom: clamp(64px, 8vw, 112px); }
 .hero6 { height: auto; min-height: min(100svh, 1080px); max-height: none; }
 .hero6-in { min-height: min(100svh, 1080px); padding-top: calc(var(--hh) + 40px); }
+
+/* Bosh ekran: showroom videosi butun ekranda (egasi 2026-11-25: "rasm chiroylimas, video qo'y") */
+.hero6-shade { background: linear-gradient(180deg, rgba(0, 0, 0, .45) 0%, rgba(0, 0, 0, .05) 25%, rgba(0, 0, 0, .1) 50%, rgba(0, 0, 0, .7) 100%); }

@@ -18,9 +18,6 @@ import { catalogCards } from "@/lib/catalogCards";
    Qoldi: kirish animatsiyasi, slogan, orzu/haqiqat slayderi, qadriyatlar, kompaniya videolari, kviz.
    Katalog, loyihalar, biz haqimizda va ofis alohida sahifalarga ko'chdi. Oldingi variant: git 92d5a8c. */
 
-/* Bosh ekran: 3 ta yorug' interyer navbat bilan almashadi (Mossman kabi). Kompaniya videosi pastda. */
-const heroSlides = ["/img/premium/seg-home.jpg", "/img/premium/cat-living.jpg", "/img/premium/cat-wardrobe2.jpg"];
-
 export default async function Home({ params }: PageProps<"/[lang]">) {
   const { lang } = await params;
   if (!hasLocale(lang)) notFound();
@@ -37,13 +34,10 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
         <span className="intro-bar" />
       </div>
       <main id="top">
-        {/* Bosh ekran: butun ekranli video, ustida slogan */}
+        {/* Bosh ekran: kompaniya videosi, ustida slogan */}
         <section className="hero6">
-          {heroSlides.map((src, i) => (
-            <div className="hero6-slide" key={src} style={{ animationDelay: `${i * 6}s` }}>
-              <Image src={src} alt={i === 0 ? h.hero.photo : ""} fill sizes="100vw" priority={i === 0} className="object-cover" />
-            </div>
-          ))}
+          {/* Showroom videosi (egasi yubordi, IMG_8023; oxiridagi CapCut yozuvi kesildi) */}
+          <video className="hero6-video" src="/video/showroom.mp4" poster="/video/showroom-poster.jpg" autoPlay muted loop playsInline preload="auto" aria-label={h.hero.photo} />
           <div className="hero6-shade" />
           <div className="wrap hero6-in">
             <h1 className="hero-title">
