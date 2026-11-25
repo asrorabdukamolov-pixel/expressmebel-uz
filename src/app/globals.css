@@ -492,39 +492,35 @@ img { display: block; }
 }
 
 
-/* ===== To'q tema (egasi 2026-11-20: "qora fon qilsakchi") =====
-   Fon: grafit #2B2A29 va uning qoraroq tusi; urg'u teal. */
-:root { --bg: #1c1b1a; --bg-2: #2b2a29; --ink: #f1f0ee; --muted: #b4b3b0; --line: rgba(255, 255, 255, .12); --light: #2b2a29; --grey-2: #b4b3b0; }
-html { color-scheme: dark; }
+/* ===== Oq tema (egasi 2026-11-25: "Saytni fonini oq qil"; avval to'q edi 2026-11-20) =====
+   Fon: oq; matn grafit #2B2A29; urg'u teal. Footer grafit qoladi. */
+:root { --bg: #ffffff; --bg-2: #f6f6f5; --ink: #2b2a29; --muted: #5f5e5d; --line: #e2e2e0; --line-dark: #e2e2e0; --light: #f4f4f3; --grey-2: #5f5e5d; }
+html { color-scheme: light; }
 body { background: var(--bg); color: var(--ink); }
-.site-header { background: rgba(28, 27, 26, .94); border-bottom-color: var(--line); backdrop-filter: blur(8px); }
+.site-header { background: rgba(255, 255, 255, .96); border-bottom-color: var(--line); backdrop-filter: blur(8px); }
 .nav-links a, .nav-phone { color: var(--ink); }
 .lang a { color: var(--muted); }
 .lang a[aria-current="true"] { background: var(--teal); color: #fff; }
 .lead, .eyebrow { color: var(--muted); }
 .about-text { color: var(--ink); }
-.btn-line { background: #3a3938; color: var(--ink); }
-.btn-line:hover { background: #4a4948; }
-.btn-dark { background: #3a3938; color: var(--ink); }
 .btn-dark:hover { background: var(--teal); }
-.dark-sec { background: var(--bg-2); }
-.hero { background: var(--bg); }
+.dark-sec { background: var(--bg); color: var(--ink); border-top: 1px solid var(--line); }
+.dark-sec .lead, .eyebrow-light, .video p, .g-item figcaption { color: var(--muted); }
+.hero { background: var(--bg); color: var(--ink); }
+.hero-lead, .hero-stats span { color: var(--muted); }
+.link-light { color: var(--ink); border-bottom-color: rgba(43, 42, 41, .35); }
 .hero-media { background: #000; }
 .hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; animation: hero-in 1.8s cubic-bezier(.2, .7, .2, 1) both; }
 .hero-cap { background: var(--bg); color: var(--ink); }
-.quiz { background: var(--bg-2); border-color: var(--line); box-shadow: none; }
-.q-opt { background: transparent; color: var(--ink); }
-.q-opt[aria-pressed="true"] { background: rgba(0, 142, 155, .16); }
-.q-other, .field input, .field select, .field textarea { background: var(--bg); color: var(--ink); }
-.q-channel button { color: var(--ink); }
-.lead-form { background: var(--bg); color: var(--ink); }
-.field label { color: var(--muted); }
-.mbar { background: var(--bg); border-top-color: var(--line); }
-.tabs button { color: var(--ink); }
-.w-styles button[aria-pressed="true"] { color: var(--ink); }
+.g-nav button { color: var(--ink); border-color: var(--line); }
+.g-nav button:hover { background: var(--teal); border-color: var(--teal); color: #fff; }
+.fac-card { background: var(--bg); color: var(--ink); box-shadow: 0 30px 60px -40px rgba(43, 42, 41, .45); }
+.fac-card .lead { color: var(--muted); }
+.lead-form { background: var(--bg-2); color: var(--ink); }
 .client-logo { border-color: var(--line); background: #fff; }
-.seg small, .card .go, .seg .go, .client-stats b, .ben-row b, .benefit b { color: #19aab7; }
-.site-footer { background: #151413; }
+.seg small, .card .go, .seg .go, .client-stats b, .ben-row b, .benefit b { color: var(--teal); }
+.site-footer { background: var(--dark); border-top-color: rgba(255, 255, 255, .16); }
+.site-footer .contacts div { border-top-color: rgba(255, 255, 255, .16); }
 
 /* Rasmlar: hammasiga bir xil iliq, boyroq tus */
 .ph img, .g-ph img, .seg-ph img, .client-ph img, .ben-ph img, .fac-ph img, .w-card img { filter: contrast(1.07) saturate(1.06) sepia(.07) brightness(.97); }

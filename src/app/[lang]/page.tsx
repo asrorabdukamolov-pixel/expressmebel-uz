@@ -48,7 +48,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
       <Header lang={lang} dict={t} />
       <Reveal />
       <div className="intro" aria-hidden="true">
-        <Image src="/brand/logo-light.webp" alt="" width={2000} height={516} priority className="intro-logo" />
+        <Image src="/brand/logo-dark.webp" alt="" width={2000} height={516} priority className="intro-logo" />
         <span className="intro-bar" />
       </div>
       <main id="top">
